@@ -1,0 +1,21 @@
+/* Basic page styling for the platformer canvas */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #333;
+  color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+#gameCanvas {
+  border: 3px solid #fff;
+  display: block;
+}
+
