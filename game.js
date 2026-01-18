@@ -235,6 +235,69 @@ window.addEventListener('keyup', (event) => {
   }
 });
 
+// Mobile touch controls
+function setupMobileControls() {
+  const btnLeft = document.getElementById('btnLeft');
+  const btnRight = document.getElementById('btnRight');
+  const btnJump = document.getElementById('btnJump');
+
+  if (!btnLeft || !btnRight || !btnJump) return;
+
+  // Left button
+  btnLeft.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keys.left = true;
+  });
+  btnLeft.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keys.left = false;
+  });
+  btnLeft.addEventListener('touchcancel', (e) => {
+    e.preventDefault();
+    keys.left = false;
+  });
+
+  // Right button
+  btnRight.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keys.right = true;
+  });
+  btnRight.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keys.right = false;
+  });
+  btnRight.addEventListener('touchcancel', (e) => {
+    e.preventDefault();
+    keys.right = false;
+  });
+
+  // Jump button
+  btnJump.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keys.up = true;
+  });
+  btnJump.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keys.up = false;
+  });
+  btnJump.addEventListener('touchcancel', (e) => {
+    e.preventDefault();
+    keys.up = false;
+  });
+}
+
+// Initialize mobile controls when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupMobileControls);
+} else {
+  setupMobileControls();
+}
+
+// Prevent default touch behaviors on canvas
+canvas.addEventListener('touchstart', (e) => e.preventDefault());
+canvas.addEventListener('touchmove', (e) => e.preventDefault());
+canvas.addEventListener('touchend', (e) => e.preventDefault());
+
 /**
  * Axis-Aligned Bounding Box collision detection
  */
