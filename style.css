@@ -14,6 +14,13 @@ h1 {
   font-weight: 600;
 }
 
+h2 {
+  text-align: center;      /* Centers the text lines themselves */
+  margin-left: 20%;        /* Adds 20% empty space on the left */
+  margin-right: 20%;       /* Adds 20% empty space on the right */
+  font-family: sans-serif; /* Optional: Makes it easier to read */
+}
+
 #gameCanvas {
   border: 3px solid #fff;
   display: block;

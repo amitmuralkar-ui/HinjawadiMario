@@ -44,7 +44,7 @@ const assets = {
 };
 
 // Player sprite sheet animation data
-const PLAYER_TARGET_HEIGHT = 192; // desired on-canvas height for player sprite (4x original, 2x current)
+const PLAYER_TARGET_HEIGHT = 600 // desired on-canvas height for player sprite (4x original, 2x current)
 const playerAnim = {
   sheet: null,
   frameWidth: 0,
@@ -59,14 +59,14 @@ const playerAnim = {
 };
 
 const player = {
-  x: 50,
+  x: 500,
   y: 400,
-  width: 30,
-  height: 30,
-  speed: 5,
-  yVelocity: 0,
+  width: 100,
+  height: 70,
+  speed: 1,
+  yVelocity: 2,
   isGrounded: false,
-  jumpForce: -13,
+  jumpForce: -15,
   gravity: 0.6,
 };
 
@@ -87,22 +87,22 @@ assets.playerFaces = loadImage('player-faces.png', (img) => {
 // Define the platforms in the level
 const platforms = [
   { x: 0, y: canvas.height - 20, width: canvas.width, height: 20, color: '#222', isGround: true },
-  { x: 100, y: 350, width: 150, height: 20, color: 'brown', speed: 0.8, direction: 1, patrolMin: 60, patrolMax: 260 },
+  { x: 100, y: 350, width: 150, height: 20, color: 'brown', speed: 0.8, direction: 1, patrolMin: 60, patrolMax: 360 },
   { x: 350, y: 250, width: 100, height: 20, color: 'brown', speed: 1, direction: -1, patrolMin: 260, patrolMax: 520 },
   { x: 520, y: 320, width: 140, height: 20, color: 'brown', speed: 0.6, direction: 1, patrolMin: 440, patrolMax: 760 },
   { x: 650, y: 200, width: 120, height: 20, color: 'brown', speed: 0.7, direction: -1, patrolMin: 520, patrolMax: 820 },
   // Stair platforms going up
-  { x: 270, y: 180, width: 80, height: 16, color: 'brown' },
-  { x: 330, y: 120, width: 80, height: 16, color: 'brown' },
-  { x: 390, y: 45, width: 80, height: 16, color: 'brown' },
+  { x: 200, y: 180, width: 80, height: 20, color: 'brown' },
+  { x: 300, y: 120, width: 80, height: 20, color: 'brown' },
+  { x: 390, y: 45, width: 80, height: 20, color: 'brown' },
 ];
 
 // Coins and enemies (visual only for now)
-const COIN_COUNT = 12;
+const COIN_COUNT = 6;
 function randomCoin() {
   const size = 32; // 2x previous
-  const marginX = 50;
-  const marginY = 60;
+  const marginX = 150;
+  const marginY = 160;
   const x = Math.random() * (canvas.width - 2 * marginX - size) + marginX;
   const y = Math.random() * (canvas.height - 2 * marginY - size) + marginY;
   return {
